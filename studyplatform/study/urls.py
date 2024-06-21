@@ -22,6 +22,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('lesson-comment/<int:lesson_id>/', LessonCommentAPIView.as_view()),
     path('lesson-like/<int:lesson_id>/', LessonLikeAPIView.as_view()),
-    path('send-notification/', send_notification, name='send_notification'),
+    path('send-notification/<str:target>/', send_notification, name='send_notification'),
     path('search-lesson/<str:keyword>/', search_view, name='search-lesson'),
 ]

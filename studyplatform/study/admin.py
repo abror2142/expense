@@ -33,16 +33,19 @@ class GroupAdmin(admin.ModelAdmin):
     list_display_links = ['name']
 
 
+class LessonVideInline(admin.TabularInline):
+    """ This class provides tabular view to lesson and video models."""
+    model = LessonVideo
+    extra = 1
+
+
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):
     list_display = ['id', 'group', 'lesson_name', 'topic']
     list_display_links = ['lesson_name']
-
-
-@admin.register(LessonVideo)
-class LessonVideoAdmin(admin.ModelAdmin):
-    list_display = ['id', 'lesson', 'title']
-    list_display_links = ['id']
+    inlines = [
+        LessonVideInline
+    ]
 
 
 @admin.register(Homework)
@@ -53,7 +56,7 @@ class HomeworkAdmin(admin.ModelAdmin):
 
 @admin.register(LessonComment)
 class LessonCommentAdmin(admin.ModelAdmin):
-    list_display = ['id', 'student', 'lesson', 'content']
+    list_display = ['id', 'user', 'lesson', 'content']
     list_display_links = ['id']
 
 

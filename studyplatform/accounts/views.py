@@ -7,12 +7,15 @@ from .serializers import (CountrySerializer, CityRegionSerializer,
                           LevelSerializer, TeacherSerializer,
                           SpecialtyLevelSerializer, StudentSerializer)
 
+
 class CountryAPIView(viewsets.ModelViewSet):
+    """Country API view is used to define Country object"""
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
 
 
 class CityRegionAPIView(viewsets.ModelViewSet):
+    """City """
     queryset = CityRegion.objects.all()
     serializer_class = CityRegionSerializer
 
